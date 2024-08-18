@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #scaler-container {
+            position: relative;
+            /* width: 100%; */
+            height: 300px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            /* 禁用默认手势 */
+            /* touch-action: none; */
+            background-color: #ccc;
+        }
+
+        #aim {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center center;
+            cursor: grab;
+            user-select: none;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table td {
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="scaler-container">
+        <!-- <img id="aim" src="https://gimg3.baidu.com/search/src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2F738b4710b912c8fc98ec1f5fea78ee4bd788218a.jpeg%40f_auto%3Ftoken%3D330c38b8ccf85be7a164d9273dd81c2e&refer=http%3A%2F%2Fwww.baidu.com&app=2021&size=f360,240&n=0&g=0n&q=75&fmt=auto?sec=1724000400&t=1e53a6e57bdf4f623594a5884fef5907" alt="aim"> -->
+        <table id="aim" border="1" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th align="center">编程语言</th>
+                    <th align="center">简介</th>
+                    <th align="center">应用领域</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td align="center">Python</td>
+                    <td align="center">一种解释型、高级编程、通用型编程语言，以其简洁的语法和强大的库支持而闻名</td>
+                    <td align="center">Web开发、数据分析、人工智能、机器学习、自动化脚本等</td>
+                </tr>
+                <tr>
+                    <td align="center">Java</td>
+                    <td align="center">一种面向对象的编程语言，具有跨平台性，被誉为“一次编写，到处运行”</td>
+                    <td align="center">Web开发、企业级应用开发、Android开发、桌面应用开发等</td>
+                </tr>
+                <tr>
+                    <td align="center">JavaScript</td>
+                    <td align="center">一种脚本语言，主要用于Web开发，为网页提供动态交互功能</td>
+                    <td align="center">Web前端开发、Node.js后端开发、桌面应用开发（如Electron）等</td>
+                </tr>
+                <tr>
+                    <td align="center">C++</td>
+                    <td align="center">一种高效、灵活的编程语言，支持面向对象和过程式编程</td>
+                    <td align="center">系统软件、游戏开发、嵌入式系统开发、高性能计算等</td>
+                </tr>
+                <tr>
+                    <td align="center">C#</td>
+                    <td align="center">由<a class="global-hyperlink"
+                            href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF/124767" messageid="3994729" pos="1"
+                            history="1">微软</a>开发的一种面向对象的编程语言，主要用于.NET框架</td>
+                    <td align="center">Windows应用开发、游戏开发、Web开发（ASP.NET）等</td>
+                </tr>
+                <tr>
+                    <td align="center">PHP</td>
+                    <td align="center">一种开源的脚本语言，特别适用于Web开发</td>
+                    <td align="center">Web服务器端脚本编写、动态网站开发等</td>
+                </tr>
+                <tr>
+                    <td align="center">Go</td>
+                    <td align="center">一种由Google开发的编译型语言，以简洁的语法和高效的并发支持为特点</td>
+                    <td align="center">网络编程、云计算、微服务架构、分布式系统开发等</td>
+                </tr>
+                <tr>
+                    <td align="center">Swift</td>
+                    <td align="center">由苹果公司开发的编程语言，用于iOS、macOS等应用开发</td>
+                    <td align="center">移动应用开发（iOS、macOS）、桌面应用开发（macOS）等</td>
+                </tr>
+                <tr>
+                    <td align="center">Ruby</td>
+                    <td align="center">一种解释型、面向对象的高级编程语言，以其简洁和优雅的语法而著称</td>
+                    <td align="center">Web开发（Ruby on Rails）、自动化脚本编写等</td>
+                </tr>
+                <tr>
+                    <td align="center">Rust</td>
+                    <td align="center">一种系统编程语言，以其内存安全性和高性能为特点</td>
+                    <td align="center">系统编程、嵌入式系统开发、游戏开发等</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button onclick="reset()">重置</button>
+
+    <script type="module">
+        import Scaler from './Scaler';
+
+        const scaler = new Scaler(document.querySelector('#aim'));
+        scaler.listen();
+        window.scaler = scaler;
+    </script>
+
+    <script>
+        function reset() {
+            window.scaler.reset();
+        }
+    </script>
+</body>
+
+</html>
