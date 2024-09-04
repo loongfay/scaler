@@ -2,7 +2,7 @@
 /* eslint-disable array-bracket-newline */
 /**
  * @file 缩放器
- * @author loongfay
+ * @author zhaolongfei
  */
 
 interface ScalerOptions {
@@ -65,7 +65,11 @@ export default class Scaler {
 
     init() {
         this.$aim.style.setProperty('position', 'relative');
+        this.$aim.style.setProperty('top', '0px');
+        this.$aim.style.setProperty('left', '0px');
         this.$aim.parentElement?.style.setProperty('position', 'relative');
+        this.$aim.parentElement?.style.setProperty('height', `${this.$aim.scrollHeight}px`);
+        this.$aim.parentElement?.style.setProperty('overflow', 'hidden');
     }
 
     listen() {
@@ -132,8 +136,8 @@ export default class Scaler {
                 diffY = moveY - this.lastY;
             }
 
-            const top = this.$aim.offsetTop + diffY;
-            const left = this.$aim.offsetLeft + diffX;
+            const top = parseFloat(this.$aim.style.top) + diffY;
+            const left = parseFloat(this.$aim.style.left) + diffX;
 
             // 设置四周安全距离为 50px
             const SAFE_D = 50;
